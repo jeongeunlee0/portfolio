@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이정은 · AI Agent 포트폴리오</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--ink:#101828;--muted:#667085;--line:#e7e9ee;--navy:#132f52;--orange:#ef7a12;--blue:#2463d9;--bg:#f6f7f9}
+*{box-sizing:border-box}body{margin:0;font-family:"Pretendard Variable",Pretendard,system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(130deg,#0f2747,#17406f 50%,#2463d9);color:#fff;padding:64px 0 56px}
+.hero:before{content:"";position:absolute;width:420px;height:420px;right:-120px;top:-180px;border-radius:50%;background:radial-gradient(circle,rgba(239,122,18,.55),transparent 65%)}
+.hero .wrap{position:relative;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.avatar{width:128px;height:128px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,.22)}
+.eyebrow{color:#ffd2a8;font-weight:700;font-size:.85rem;margin:0}
+h1{font-size:2.6rem;margin:4px 0;letter-spacing:-.035em;line-height:1.15}
+.tagline{font-size:1.12rem;color:#c8d6ea;margin:0}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.links a{color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:6px 15px;text-decoration:none;font-size:.9rem;font-weight:600}
+section{padding:44px 0 4px}
+h2{font-size:1.4rem;margin:0 0 18px;letter-spacing:-.025em}
+h2:before{content:"";display:inline-block;width:6px;height:20px;background:var(--orange);border-radius:3px;margin-right:10px;vertical-align:-3px}
+.about{font-size:1.04rem;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 24px;margin:0}
+.project{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
+.project h3{font-size:1.45rem;margin:0 0 8px;letter-spacing:-.025em}
+.project .qr{width:150px;border-radius:14px;border:1px solid var(--line)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+.chips span{background:#eaf1fd;color:var(--blue);border-radius:99px;padding:3px 12px;font-size:.82rem;font-weight:650}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.btns a{background:var(--blue);color:#fff;text-decoration:none;padding:10px 18px;border-radius:12px;font-weight:700;font-size:.92rem}
+.btns a.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.item{display:grid;grid-template-columns:100px 1fr;gap:18px;margin-bottom:18px}
+.when b{display:block;color:var(--orange);font-size:1.05rem}.when span{color:var(--muted);font-size:.85rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.card img{width:100%;max-height:360px;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+.pad{padding:18px 20px}.topic{margin:0;color:var(--muted);font-size:.85rem}
+.card h3{margin:2px 0 6px;font-size:1.12rem}.card p{margin:0 0 6px}
+.ok{font-size:.72rem;background:#12a150;color:#fff;border-radius:99px;padding:2px 8px;vertical-align:middle}
+.more{font-weight:700;text-decoration:none;color:var(--blue)}
+.empty{color:var(--muted)}
+h2 small{font-size:.9rem;color:var(--muted);font-weight:600;margin-left:4px}
+.pjs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pj{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.pj img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--line)}
+.pj .pad{display:flex;flex-direction:column;flex:1}.pj h3{margin:2px 0 6px;font-size:1.1rem}.pj p{margin:0 0 6px;font-size:.93rem}
+.prs{background:#fff;border:1px solid var(--line);border-radius:18px;padding:6px 22px}
+.pr-day{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.pr-day:last-child{border-bottom:none}
+.pr-day>b{color:var(--orange)}.pr-day ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.pr-day li a{font-weight:700;color:var(--ink);text-decoration:none}.pr-day li a:hover{color:var(--blue)}
+.pr-day li span{display:block;color:var(--muted);font-size:.9rem}.pr-day li i{display:block;font-style:normal;color:var(--blue);font-size:.78rem;font-weight:600}
+.pj .chips{margin:6px 0 0}.pj .btns{margin-top:auto;padding-top:12px}.pj .btns a{padding:8px 14px;font-size:.86rem}
+footer{padding:48px 0;color:var(--muted);font-size:.85rem;text-align:center}
+@media(max-width:640px){h1{font-size:1.9rem}.project,.pjs,.pr-day{grid-template-columns:1fr}.item{grid-template-columns:1fr;gap:6px}.when b,.when span{display:inline;margin-right:8px}}
+@media print{body{background:#fff}.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}.item,.project{break-inside:avoid}}
+</style></head><body>
+<header class="hero"><div class="wrap">
+
+<div><p class="eyebrow">제주대학교 AI콘텐츠 부트캠프 1기 · 2026</p><h1>이정은</h1>
+
+<div class="links"></div>
+</div></div></header>
+<main class="wrap">
+
+<section><h2>대표 프로젝트</h2><div class="project"><div>
+<h3>서귀포 길잡이 · 제주상점 (DAY5 AI Agent 프로젝트)</h3>
+<p>날씨를 보고 서귀포 관광지를 골라 주는 AI 에이전트 ‘서귀포 길잡이’와 제주 특산품을 담고 주문하는 ‘제주상점’ 쇼핑몰이에요. API 키가 없으면 규칙 기반으로, 키가 있으면 Claude가 답하고, Vercel 서버리스 함수에서 키를 환경변수로만 읽어요. 쇼핑몰은 Supabase에 연결돼 상품 · 회원가입 · 장바구니 · 주문 · 방명록이 DB에 저장되고(행 단위 보안 적용), 결제는 체험 결제예요.</p>
+<div class="chips"><span>HTML · CSS · JavaScript</span><span>Vite</span><span>Vercel 서버리스</span><span>Claude API</span><span>Open-Meteo</span><span>three.js</span><span>Leaflet</span><span>공공데이터포털 API</span><span>GitHub</span></div>
+<div class="btns"><a href="https://day5-flax.vercel.app/guide.html" target="_blank" rel="noopener noreferrer">서비스 열기</a><a class="alt" href="https://github.com/jeongeunlee0/leejeongeun-step2" target="_blank" rel="noopener noreferrer">GitHub README</a></div>
+</div></div></section>
+<section><h2>배포한 프로젝트 <small>8</small></h2><div class="pjs"><article class="pj">
+          <img src="images/01.jpg" alt="제주 귤 뽑기 화면" loading="lazy">
+          <div class="pad">
+            <p class="topic">DAY 1 · 배포 완료 · 커밋 2회</p>
+            <h3>제주 귤 뽑기</h3>
+            <p>귤나무를 누르면 귤이 떨어지고 제주어 덕담 카드가 나오는 첫 웹페이지예요. 처음으로 GitHub에 올리고 Vercel로 배포했어요.</p>
+            <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub</span><span>Vercel</span></div>
+            <div class="btns"><a href="https://study-nine-delta.vercel.app/" target="_blank" rel="noopener noreferrer">사이트 보기</a></div>
+          </div>
+        </article><article class="pj">
+          <img src="images/02.jpg" alt="제주 특산물 홍보관 · 특산물 길잡이 화면" loading="lazy">
+          <div class="pad">
+            <p class="topic">DAY 2 · 배포 완료 · 커밋 24회</p>
+            <h3>제주 특산물 홍보관 · 특산물 길잡이</h3>
+            <p>특산물 홍보 페이지와 에이전트 &#39;제주 특산물 길잡이&#39;의 채팅 화면이에요. Pixabay 사진 검색, 날씨 · 거리 · 제철 특산물 스킬이 실제로 동작해요.</p>
+            <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Pixabay API</span><span>Vercel</span></div>
+            <div class="btns"><a href="https://day2-psi-seven.vercel.app/" target="_blank" rel="noopener noreferrer">사이트 보기</a></div>
+          </div>
+        </article><article class="pj">
+          <img src="images/03.jpg" alt="제주 멍때리기 좋은 명소 화면" loading="lazy">
+          <div class="pad">
+            <p class="topic">DAY 3 · 배포 완료</p>
+            <h3>제주 멍때리기 좋은 명소</h3>
+            <p>바다 · 오름 · 숲 · 물 · 문화 68곳을 분류 · 지역 · 검색으로 찾는 과제 페이지예요. GitHub 저장소(jeju_spots_project, 비공개)와 연결돼 있고, vibe 실습 모음에도 들어 있어요.</p>
+            <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span></div>
+            <div class="btns"><a href="https://jeju-spots-project.vercel.app/" target="_blank" rel="noopener noreferrer">사이트 보기</a></div>
+          </div>
+        </article><article class="pj">
+          <img src="images/04.jpg" alt="돌하르방의 제주 텃밭 화면" loading="lazy">
+          <div class="pad">
+            <p class="topic">DAY 4 · 배포 완료 · 커밋 14회</p>
+            <h3>돌하르방의 제주 텃밭</h3>
+            <p>단계별 프롬프트로 완성한 3D 텃밭 게임이에요. Supabase로 진행 상황을 클라우드에 저장하고, 로그인과 장바구니 결제 흐름을 붙였어요.</p>
+            <div class="chips"><span>three.js</span><span>Blender</span><span>Supabase</span><span>Vercel</span></div>
+            <div class="btns"><a href="https://day4-ten-theta.vercel.app/" target="_blank" rel="noopener noreferrer">사이트 보기</a></div>
+          </div>
+        </article><article class="pj">
+          <img src="images/05.jpg" alt="우주 Universal 화면" loading="lazy">
+          <div class="pad">
+            <p class="topic">DAY 4 · 배포 완료</p>
+            <h3>우주 Universal</h3>
+            <p>드래그로 회전하고 휠로 확대하는 3D 우주 장면</p>
+            <div class="chips"><span>three.js</span></div>
+            <div class="btns"><a href="https://day4-ten-theta.vercel.app/universe.html" target="_blank" rel="noopener noreferrer">사이트 보기</a></div>
+          </div>
+        </article><article class="pj">
+          <img src="images/06.jpg" alt="제주상점 · 서귀포 길잡이 화면" loading="lazy">
+          <div class="pad">
+            <p class="topic">DAY 5 · 배포 완료 · 커밋 19회</p>
+            <h3>제주상점 · 서귀포 길잡이</h3>
+            <p>제주 특산품 쇼핑몰 &#39;제주상점&#39;과, 날씨를 보고 서귀포 관광지를 골라 주는 AI 에이전트 &#39;서귀포 길잡이&#39;(/guide.html)예요. 쇼핑몰은 Supabase에 연결돼 상품 · 회원가입 · 장바구니 · 주문 · 방명록이 DB에 저장되고(행 단위 보안 적용), 결제는 체험 결제예요. Claude API 키는 서버리스 함수의 환경변수로만 읽어요.</p>
+            <div class="chips"><span>Vite</span><span>Supabase</span><span>Vercel 서버리스</span><span>Claude API</span><span>Open-Meteo</span></div>
+            <div class="btns"><a href="https://day5-flax.vercel.app/" target="_blank" rel="noopener noreferrer">사이트 보기</a></div>
+          </div>
+        </article><article class="pj">
+          <img src="images/07.jpg" alt="답사 스탬프 투어 (과제 2단계) 화면" loading="lazy">
+          <div class="pad">
+            <p class="topic">DAY 5 · 배포 완료 · 커밋 6회</p>
+            <h3>답사 스탬프 투어 (과제 2단계)</h3>
+            <p>제주 역사문화 공공데이터로 장소를 찾고 지도 · 3D로 본 뒤, 찜한 곳으로 답사 코스를 만들어 스탬프를 찍어요. 공공데이터 키는 서버리스 함수에서만 써요.</p>
+            <div class="chips"><span>공공데이터포털 API</span><span>Vercel 서버리스</span><span>Leaflet</span><span>three.js</span></div>
+            <div class="btns"><a href="https://leejeongeun-step2.vercel.app/" target="_blank" rel="noopener noreferrer">사이트 보기</a></div>
+          </div>
+        </article><article class="pj">
+          <img src="images/08.jpg" alt="답사 스탬프 투어 (과제 1단계 · CSV 데이터) 화면" loading="lazy">
+          <div class="pad">
+            <p class="topic">DAY 5 · 배포 완료</p>
+            <h3>답사 스탬프 투어 (과제 1단계 · CSV 데이터)</h3>
+            <p>제주 역사문화 공공데이터(CSV)를 페이지 안에 담아 지도 · 3D로 보고 스탬프를 찍는 1단계 제출본이에요. 2단계에서 서버리스 API로 발전시켰어요.</p>
+            <div class="chips"><span>JavaScript</span><span>공공데이터 CSV</span><span>Leaflet</span><span>three.js</span></div>
+            <div class="btns"><a href="https://day5-flax.vercel.app/%EA%B3%BC%EC%A0%9C_1%EB%8B%A8%EA%B3%84/" target="_blank" rel="noopener noreferrer">사이트 보기</a></div>
+          </div>
+        </article></div></section>
+
+<section><h2>8일간의 성장 기록</h2>
+<article class="item">
+          <div class="when"><b>DAY 1</b><span>10/26(월)</span></div>
+          <div class="card">
+            <img src="images/09.jpg" alt="여행 취향 카드 스크린샷">
+            <div class="pad">
+              <p class="topic">바이브코딩 기초 · AI Agent 란?</p>
+              <h3>여행 취향 카드 <span class="ok">완성</span></h3>
+              <p>바이브코딩으로 만든 첫 웹페이지 ‘제주 귤 뽑기’예요. 귤나무를 누르면 귤이 떨어지고 제주어 덕담 카드가 나와요. GitHub(study)에 올리고 Vercel로 배포했어요.</p>
+              <a class="more" href="https://study-nine-delta.vercel.app/" target="_blank" rel="noopener noreferrer">결과물 보기 →</a>
+            </div>
+          </div>
+        </article><article class="item">
+          <div class="when"><b>DAY 2</b><span>10/27(화)</span></div>
+          <div class="card">
+            <img src="images/10.jpg" alt="채팅 화면 · 저장소 스크린샷">
+            <div class="pad">
+              <p class="topic">UI 구성 · 제주 로컬 IP</p>
+              <h3>채팅 화면 · 저장소 <span class="ok">완성</span></h3>
+              <p>‘제주 특산물 홍보관’ 페이지와 내 에이전트 ‘제주 특산물 길잡이’의 채팅 화면 뼈대를 만들었어요. Pixabay API로 사진 슬라이드를 붙이고, GitHub(day2)에 저장해 Vercel로 배포했어요.</p>
+              <a class="more" href="https://day2-psi-seven.vercel.app/" target="_blank" rel="noopener noreferrer">결과물 보기 →</a>
+            </div>
+          </div>
+        </article><article class="item">
+          <div class="when"><b>DAY 3</b><span>10/28(수)</span></div>
+          <div class="card">
+            <img src="images/11.jpg" alt="첫 인터넷 주소 스크린샷">
+            <div class="pad">
+              <p class="topic">브랜딩 · 랜딩페이지</p>
+              <h3>첫 인터넷 주소 <span class="ok">완성</span></h3>
+              <p>과제 ‘제주 멍때리기 좋은 명소’를 만들어 첫 인터넷 주소로 배포했어요. 바다 · 오름 · 숲 · 물 · 문화 68곳을 분류 · 지역 · 검색으로 찾고, 가 보고 싶은 곳을 모을 수 있어요.</p>
+              <a class="more" href="https://jeju-spots-project.vercel.app/" target="_blank" rel="noopener noreferrer">결과물 보기 →</a>
+            </div>
+          </div>
+        </article><article class="item">
+          <div class="when"><b>DAY 4</b><span>10/29(목)</span></div>
+          <div class="card">
+            <img src="images/12.jpg" alt="AI 추천 배포본 스크린샷">
+            <div class="pad">
+              <p class="topic">AI 텍스트 · 이미지 추천</p>
+              <h3>AI 추천 배포본 <span class="ok">완성</span></h3>
+              <p>단계별 프롬프트(1~9단계)로 3D 게임 ‘돌하르방의 제주 텃밭’을 완성했어요. Blender로 제주 지형 영상(jeju_birth.mp4)도 만들었어요. (Vercel 프로젝트 day4는 배포 주소를 확인하지 못해 링크를 비워 뒀어요)</p>
+              <a class="more" href="https://day4-ten-theta.vercel.app/" target="_blank" rel="noopener noreferrer">결과물 보기 →</a>
+            </div>
+          </div>
+        </article><article class="item">
+          <div class="when"><b>DAY 5</b><span>10/30(금)</span></div>
+          <div class="card">
+            <img src="images/13.jpg" alt="포트폴리오 1호 스크린샷">
+            <div class="pad">
+              <p class="topic">제주 관광 안내 AI Agent</p>
+              <h3>포트폴리오 1호 <span class="ok">완성</span></h3>
+              <p>제주 역사문화 공공데이터를 활용해 장소를 찾고, 3D로 보여주는 답사 코스 ‘답사 스탬프 투어’ 과제를 제출했습니다. 또 같은 날 날씨에 따라 서귀포 관광지를 추천하는 ‘서귀포 길잡이’와 ‘제주상점’ 쇼핑몰도 배포했습니다.</p>
+              <a class="more" href="https://leejeongeun-step2.vercel.app/" target="_blank" rel="noopener noreferrer">결과물 보기 →</a>
+            </div>
+          </div>
+        </article>
+</section>
+</main>
+<footer>제주대학교 청년도약 인재양성 부트캠프 · AI콘텐츠 1기 (2026.10.26 – 11.4)</footer>
+</body></html>
